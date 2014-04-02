@@ -1,4 +1,4 @@
-package kr.co.apexsoft.rpu.git;
+package kr.co.apexsoft.fpu.git.test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,14 +8,16 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.apexsoft.fpu.git.GitUtil;
+
 
 public class TestDriver {
 	public static void main(String args[]) {
 		printResult(GitUtil.getBranchNames(), "getBranchNames");
-		String sha = GitUtil.calculateSHA(args[0]);
-		printResult(sha, "calculateSHA");
-		List<String> result = GitUtil.makeTargetBranches(sha, new ArrayList<String>()); 
-		printResult(result, "makeTargetBranches");
+		String sha = GitUtil.getSHA(args[0]);
+		printResult(sha, "getSHA");
+		List<String> result = GitUtil.getTargetBrancheNames(sha, new ArrayList<String>()); 
+		printResult(result, "getTargetBrancheNames");
 		try {
 			RandomAccessFile aFile = new RandomAccessFile("TargetBranches.txt", "rw");
 			FileChannel outChannel = aFile.getChannel();

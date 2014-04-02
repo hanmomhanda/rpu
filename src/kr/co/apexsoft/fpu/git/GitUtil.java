@@ -1,4 +1,4 @@
-package kr.co.apexsoft.rpu.git;
+package kr.co.apexsoft.fpu.git;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class GitUtil {
 	 * @param fullPath
 	 * @return 해당 파일의 SHA 문자열
 	 */
-	public static String calculateSHA(String fullPath) {
+	public static String getSHA(String fullPath) {
 		
 		List<String> sha = execGitCommand("git hash-object " + fullPath);
 		
@@ -76,7 +76,7 @@ public class GitUtil {
 	 * @param result   update 대상 파일을 포함하고 있는 branchNames를 담을 List
 	 * @return         update 대상 파일을 포함하고 있는 branchNames
 	 */
-	public static List<String> makeTargetBranches(String sha, List<String> result) {
+	public static List<String> getTargetBrancheNames(String sha, List<String> result) {
 		
 		List<String> branchNames = getBranchNames();
 		
@@ -90,6 +90,8 @@ public class GitUtil {
 	}
 
 	/**
+	 * branch 브랜치에서 sha 키 값을 가진 객체를 찾아서 있으면 branch 브랜치를 result에 추가
+	 * 
 	 * @param sha
 	 * @param result
 	 * @param branch

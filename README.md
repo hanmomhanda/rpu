@@ -1,11 +1,19 @@
-rpu
+FPU
 ===
 
-Tool for Updating Released Products
+Tool for Fragmented PackageSW Updater
 
 ## Level1
 
 Find the list of branches which have a specific file to be updated.
+
+### Usage
+
+In git repository directory,
+
+>java -jar fpu.jar `FULL_PATH_TO_THE_FILE`
+
+To open 'TargetBranches.txt' file will show the list of branches.
 
 ## Level2
 
